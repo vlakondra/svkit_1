@@ -2,6 +2,11 @@
 	import '../app.pcss';
 </script>
 
-<div class="p-11 border border-indigo-600">
+
+
+<nav>
+	<a href="/">home</a>
+	<a href="/blog">blog</a>
+</nav>
+
 <slot />
-</div>
