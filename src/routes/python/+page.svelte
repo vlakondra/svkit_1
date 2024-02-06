@@ -1,6 +1,6 @@
 <script>
+	/** @type {import('./$types').PageServerData} */
 	export let data;
-    console.log(data)
 </script>
 
 <h1>Python</h1>
@@ -8,9 +8,9 @@
 	<a href='/'>Home</a>
 </div>
 
-{#if data.result}
+{#if data.result2}
 <ul>
-	{#each data.result as item}
+	{#each data.result2 as item}
 		<li>{item[0]} -- {item[1]}</li>
 	{/each}
 </ul>
