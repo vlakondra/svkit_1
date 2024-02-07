@@ -8,14 +8,15 @@
 	</main>
 
 	<aside>
-        {JSON.stringify(data)}
+   
 		<h2>Layout Continent-Countries</h2>
+	
 		<ul>
-			<!-- {#each data.summaries as { slug, title }}
+			{#each data.world.regions as reg }
 				<li>
-					<a href="/blog/{slug}">{title}</a>
+					<a href="/countries/{reg.toLowerCase()}">{reg}</a>
 				</li>
-			{/each} -->
+			{/each} 
 		</ul>
 	</aside>
 </div>
