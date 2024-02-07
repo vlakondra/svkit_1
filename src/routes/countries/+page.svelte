@@ -4,7 +4,10 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 
+
 	if (browser) {
 		goto(`countries/${data.world.regions[0].toLowerCase()}`);
 	}
 </script>
+
+
