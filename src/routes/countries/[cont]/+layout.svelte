@@ -8,15 +8,12 @@
 	</main>
 
 	<aside>
-   
-		<h2>Layout Continent-Countries</h2>
-	
 		<ul>
-			{#each data.world.regions as reg }
+			{#each data.world.regions as reg}
 				<li>
 					<a href="/countries/{reg.toLowerCase()}">{reg}</a>
 				</li>
-			{/each} 
+			{/each}
 		</ul>
 	</aside>
 </div>
@@ -28,5 +25,8 @@
 			gap: 2em;
 			grid-template-columns: 1fr 16em;
 		}
+	}
+	li {
+		padding: 0 20px;
 	}
 </style>
