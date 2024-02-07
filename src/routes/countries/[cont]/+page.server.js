@@ -1,7 +1,7 @@
-export function load(ctx) {
-	// console.log("+page.js params",ctx)
+export function load({params}) {
+	console.log("+page.server.js",params)
 	return {
-       "testdata2": {a:[1,2,3]}
+       "testdata22": {a:[4,25,77]}
 		// summaries: posts.map((post) => ({
 		// 	slug: post.slug,
 		// 	title: post.title

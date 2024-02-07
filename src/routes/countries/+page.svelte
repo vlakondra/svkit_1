@@ -14,4 +14,3 @@ if (browser) {
 <!-- {JSON.stringify(data.world)}
 {JSON.stringify(data.world.alldata)} -->
 <!-- {JSON.stringify(data.world.regions)} -->
-<h1>Contries</h1>
