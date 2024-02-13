@@ -1,14 +1,14 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
-    let selected =data.world.regions[0]//'AFRICA'
+    let selected =data.regions[0]//'AFRICA'
 </script>
-
+<!-- {JSON.stringify(data)} -->
 <div class="layout">
 	<main>
 		<div style="border:1px solid blue;padding:25px">
 
-            {#each data.world.alldata.filter(cntr =>cntr[1]==selected ) as item}
+            {#each data.alldata.filter(cntr =>cntr[1]==selected ) as item}
                 <p>{item[0]}</p>
             {/each}
         </div>
@@ -16,7 +16,7 @@
 
 	<aside>
 		<ul>
-			{#each data.world.regions as reg}
+			{#each data.regions as reg}
 				<li on:click={()=>selected=reg} style="cursor: pointer">
                     {reg.toLowerCase()}
 				</li>
