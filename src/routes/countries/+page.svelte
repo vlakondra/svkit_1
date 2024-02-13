@@ -1,5 +1,5 @@
 <script>
-	/** @type {import('./$types').LayoutServerLoad} */
+	/** @type {import('./$types').LayoutServerData} */
 	export let data;
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
