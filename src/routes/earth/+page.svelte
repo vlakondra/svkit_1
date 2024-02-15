@@ -7,7 +7,7 @@
 <div class="layout">
 	<main>
 		<div style="border:1px solid blue;padding:25px">
-
+        <h1>проверка</h1>
             {#each data.alldata.filter(cntr =>cntr[1]==selected ) as item}
                 <p>{item[0]}</p>
             {/each}

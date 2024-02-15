@@ -5,11 +5,11 @@
 
 
 <nav>
-	<a href="/">home</a>
-	<a href="/blog">blog</a>
-	<a href="/python">Python</a>
-	<a href="/countries">Countries</a>
-	<a href="/earth">Earth</a>
+	<a class='link' href="/">home</a>
+	<a class='link' href="/blog">blog</a>
+	<a class='link' href="/python">Python</a>
+	<a class='link' href="/countries">Countries</a>
+	<a class='link' href="/earth">Earth</a>
 </nav>
 
 <slot />
