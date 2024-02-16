@@ -15,6 +15,7 @@ let pymodule = py.importSync("src/lib/py/pydata.py");
 		const result2 = py.evalSync(pymodule, "getcountries()");
       
 		if(selcont){
+			console.log('page.server',selcont)
 			result2.selcont=selcont
 		}
 		 return result2;
