@@ -1,11 +1,11 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
-    import { getCookie, setCookie, deleteCookie } from 'svelte-cookie';
+   // import { getCookie, setCookie, deleteCookie } from 'svelte-cookie';
 	import { onMount } from 'svelte';
     //let selected =data.regions[0]//'AFRICA'
-	let sel_cont = getCookie('selcont');
-	console.log('sel_cont',sel_cont)
+	//let sel_cont = getCookie('selcont');
+	//console.log('sel_cont',sel_cont)
 	
 	let selected
 
@@ -30,7 +30,8 @@
    };
 
 </script>
-{JSON.stringify(data.selcont)}
+<!-- {JSON.stringify(data.selcont)} -->
+
 <div class="layout">
 	<main>
 		<div style="border:1px solid blue;padding:25px">
