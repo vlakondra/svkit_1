@@ -11,22 +11,21 @@ let pymodule = py.importSync("src/lib/py/pydata.py");
 			'Content-Type': 'text/html; charset=utf-8'
 		});
 
+		/** @type {?string} */
         const viscount = cookies.get("viscount")
-		let vis_count = 0;
 		
-		if (viscount){
-			console.log('Viscount',viscount)
-			vis_count += 1//Number(viscount)
-			console.log(vis_count)
+		if (Number(viscount)>0){
+			cookies.set("viscount", (Number(viscount)+1).toString(), {path:'/'})
 		}else{
 			console.log('no viscount')
+			cookies.set("viscount", 1, {path:'/'})
 		}
         
 		// setHeaders({
 		// 	'Set-Cookie': 'viscount=vis_count'
 		// })
 
-		cookies.set("viscount", vis_count.toString(), {path:'/'})
+		
 		// console.log(cookies)
 
 		const selcont = cookies.get('selcont');

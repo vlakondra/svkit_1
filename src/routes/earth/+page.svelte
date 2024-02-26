@@ -7,7 +7,7 @@
 	//let sel_cont = getCookie('selcont');
 	//console.log('sel_cont',sel_cont)
 	
-	let selected
+	let selected;
 
 	onMount(() => {
         console.log(document.cookie)
@@ -42,10 +42,15 @@
         </div>
 	</main>
 
+	<!-- class={active ? 'active' : ''} -->
+	<!-- class:active={current === 'foo'}  -->
+
 	<aside>
 		<ul>
 			{#each data.regions as reg}
-				<li on:click={()=>selcontinent(reg)} style="cursor: pointer">
+				<li on:click={()=>selcontinent(reg)} 
+					class:active={selected ==reg }
+					style="cursor: pointer">
                     {reg.toLowerCase()}
 				</li>
 			{/each}
@@ -54,6 +59,7 @@
 </div>
 
 <style>
+
 	@media (min-width: 640px) {
 		.layout {
 			display: grid;
@@ -63,5 +69,10 @@
 	}
 	li {
 		padding: 0 20px;
+	}
+
+	.active{
+		background-color: red;
+		color:azure;
 	}
 </style>
