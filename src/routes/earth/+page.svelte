@@ -1,7 +1,10 @@
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
-   // import { getCookie, setCookie, deleteCookie } from 'svelte-cookie';
+    // import { getCookie, setCookie, deleteCookie } from 'svelte-cookie';
+//    import { Cookies } from ('@sveltejs/kit'.);
+    //    import {Cookies} from  'js.cookie.js'   
+
 	import { onMount } from 'svelte';
     //let selected =data.regions[0]//'AFRICA'
 	//let sel_cont = getCookie('selcont');
@@ -10,7 +13,10 @@
 	let selected;
 
 	onMount(() => {
-        console.log(document.cookie)
+
+		console.log(document.cookie)
+		// console.log('browser',getCookie('viscount'))
+
 		const cookieValue = document.cookie
              .split("; ")
              .find((row) => row.startsWith("selcont="))
