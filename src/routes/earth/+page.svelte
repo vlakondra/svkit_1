@@ -42,8 +42,7 @@
         </div>
 	</main>
 
-	<!-- class={active ? 'active' : ''} -->
-	<!-- class:active={current === 'foo'}  -->
+
 
 	<aside>
 		<ul>
