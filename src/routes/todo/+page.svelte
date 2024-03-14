@@ -30,9 +30,10 @@
 			<form method="POST" action="?/delete">
 				<input type="hidden" name="id" value={todo.id} />
 				<div class="item" style="display:flex; width:100%; align-items: center;">
-					<div style="flex:1">{todo.description}</div>
 
+					<div style="flex:1">{todo.description}</div>
 					<button title="удалить" />
+
 				</div>
 			</form>
 		{/each}
