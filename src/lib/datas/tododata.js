@@ -13,6 +13,10 @@ export function getTodos(userid) {
 }
 
 export function createTodo(userid, description) {
+
+	if (description === '') {
+		throw new Error('План не может быть пустым');
+	}
 	const todos = db.get(userid);
 
 	todos.push({

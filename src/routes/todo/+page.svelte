@@ -1,9 +1,15 @@
 <script>
 	export let data;
+	export let form;
 </script>
 
 <div class="centered">
 	<h1>todos</h1>
+
+	
+	{#if form?.error}
+		<p class="error">{form.error}</p>
+	{/if}
 
 	<form method="POST" action="?/create" class="mx-auto max-w-sm">
 		<div class="group relative z-0 mb-5 w-full">
@@ -12,6 +18,7 @@
 				<input
 					class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
 					name="description"
+					value={form?.description ?? ''}
 					autocomplete="off"
 				/>
 			</label>
@@ -20,16 +27,14 @@
 
 	<div class="todos">
 		{#each data.todos as todo (todo.id)}
-			<!-- <li> -->
 			<form method="POST" action="?/delete">
 				<input type="hidden" name="id" value={todo.id} />
-				<div style="display:flex;width:100%">
+				<div class="item" style="display:flex; width:100%; align-items: center;">
 					<div style="flex:1">{todo.description}</div>
 
-					<button aria-label="Mark as complete" />
+					<button title="удалить" />
 				</div>
 			</form>
-			<!-- </li> -->
 		{/each}
 	</div>
 </div>
@@ -43,7 +48,12 @@
 		box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 		min-width: 33%;
 	}
-
+	.todos {
+		border: 1px solid gray;
+		overflow-y: auto;
+		height: 200px;
+		padding: 10px;
+	}
 	label {
 		width: 100%;
 	}
@@ -52,9 +62,9 @@
 		flex: 1;
 	}
 
-	span {
+	/* span {
 		flex: 1;
-	}
+	} */
 
 	button {
 		border: none;
@@ -70,6 +80,10 @@
 
 	button:hover {
 		opacity: 1;
+	}
+
+	.item:hover {
+		background: #dde;
 	}
 
 	.saving {
