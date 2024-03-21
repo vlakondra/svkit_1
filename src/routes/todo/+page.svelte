@@ -1,17 +1,36 @@
 <script>
+	import { enhance } from '$app/forms';
 	export let data;
 	export let form;
+
+	let creating = false;
+	let fileInput;
+	let pict;
+
+	function getBase64(image) {
+		const reader = new FileReader();
+		reader.readAsDataURL(image);
+		reader.onload = (e) => {
+			pict = e.target.result;
+		};
+	}
+
+
 </script>
 
 <div class="centered">
 	<h1>todos</h1>
 
-	
 	{#if form?.error}
 		<p class="error">{form.error}</p>
 	{/if}
 
-	<form method="POST" action="?/create" class="mx-auto max-w-sm">
+	<form  enctype='multipart/form-data'
+		method="POST"
+		action="?/create"
+		class="mx-auto max-w-sm"
+		use:enhance
+	>
 		<div class="group relative z-0 mb-5 w-full">
 			<label>
 				add a todo:
@@ -20,24 +39,40 @@
 					name="description"
 					value={form?.description ?? ''}
 					autocomplete="off"
+					
 				/>
 			</label>
+			<div>
+				<input
+				bind:this={fileInput}
+				on:change={() => getBase64(fileInput.files[0])}
+				name="file"
+				type="file"
+				accept=".png,.jpg"
+			/>
+
+			</div>
+		</div>
+		<div>
+			<input type="submit" value="Save" />
 		</div>
 	</form>
+	<div>
+		<img src={pict}/>
+	</div>
 
 	<div class="todos">
 		{#each data.todos as todo (todo.id)}
 			<form method="POST" action="?/delete">
 				<input type="hidden" name="id" value={todo.id} />
 				<div class="item" style="display:flex; width:100%; align-items: center;">
-
 					<div style="flex:1">{todo.description}</div>
-					<button title="удалить" />
-
+					<button class="del" title="удалить" />
 				</div>
 			</form>
 		{/each}
 	</div>
+
 </div>
 
 <style>
@@ -67,7 +102,7 @@
 		flex: 1;
 	} */
 
-	button {
+	.del   {
 		border: none;
 		background: url('remove.svg') no-repeat 50% 50%;
 		background-size: 1rem 1rem;
