@@ -36,6 +36,9 @@ export const actions = {
 
 			if (offile) {
 				const filedata = new Uint8Array(Buffer.from(await offile.arrayBuffer()));
+				const buff=Buffer.from(await offile.arrayBuffer()).toString('base64');
+				console.log('buf',buff)
+
 				fs.writeFile(`static/${offile.name}`, filedata, (err) => {
 					if (err) {
 						return fail(500, { error: err.message });

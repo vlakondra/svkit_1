@@ -12,6 +12,7 @@
 		reader.readAsDataURL(image);
 		reader.onload = (e) => {
 			pict = e.target.result;
+			console.log(pict)
 		};
 	}
 
