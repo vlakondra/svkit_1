@@ -36,8 +36,12 @@ export const actions = {
 
 			if (offile) {
 				const filedata = new Uint8Array(Buffer.from(await offile.arrayBuffer()));
-				const buff=Buffer.from(await offile.arrayBuffer()).toString('base64');
+                // data:image/png;base64, 
+				const buff=`data:image/png;base64,${Buffer.from(filedata).toString('base64')}`;
 				console.log('buf',buff)
+
+                fs.writeFileSync('static/img.png', buff);    
+
 
 				fs.writeFile(`static/${offile.name}`, filedata, (err) => {
 					if (err) {
