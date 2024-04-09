@@ -24,7 +24,9 @@ export const actions = {
 		const data = await request.formData();
 
 		let offile = data.get("file")
-        console.log("offile-", offile, offile.name)
+		let img64 =  data .get("img")
+
+        console.log("offile-", offile, offile.name,img64)
 
 
 
@@ -36,10 +38,8 @@ export const actions = {
 
 			if (offile) {
 				const filedata = new Uint8Array(Buffer.from(await offile.arrayBuffer()));
-                // data:image/png;base64, 
-				const buff=`data:image/png;base64,${Buffer.from(filedata).toString('base64')}`;
-				console.log('buf',buff)
 
+				const buff=`data:image/png;base64,${Buffer.from(filedata).toString('base64')}`;
                 fs.writeFileSync('static/img.png', buff);    
 
 

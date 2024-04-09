@@ -12,21 +12,28 @@
 		reader.readAsDataURL(image);
 		reader.onload = (e) => {
 			pict = e.target.result;
-			console.log(pict)
+			console.log(pict);
 		};
 	}
 
+	function getFile(){
 
+		fileInput.click()
+	}
 </script>
 
 <div class="centered">
 	<h1>todos</h1>
+	<div>
+
+	</div>
 
 	{#if form?.error}
 		<p class="error">{form.error}</p>
 	{/if}
 
-	<form  enctype='multipart/form-data'
+	<form
+		enctype="multipart/form-data"
 		method="POST"
 		action="?/create"
 		class="mx-auto max-w-sm"
@@ -34,32 +41,35 @@
 	>
 		<div class="group relative z-0 mb-5 w-full">
 			<label>
-				add a todo:
+				Добавить:
+				
 				<input
-					class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-xs text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+			
 					name="description"
 					value={form?.description ?? ''}
 					autocomplete="off"
-					
 				/>
+				
+				<input type="hidden" value={pict} name="img" id="img" />
+				<div>
+					<label for="file" class="btn" on:click={getFile}> Файл 
+					<input
+						class="invisible border-input bg-background file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
+						bind:this={fileInput}
+						on:change={() => getBase64(fileInput.files[0])}
+						name="file"
+						type="file"
+						accept=".png,.jpg"
+					/></label>
+				</div>
 			</label>
-			<div>
-				<input
-				bind:this={fileInput}
-				on:change={() => getBase64(fileInput.files[0])}
-				name="file"
-				type="file"
-				accept=".png,.jpg"
-			/>
-
-			</div>
 		</div>
 		<div>
-			<input type="submit" value="Save" />
+			<input type="submit" value="Save" class="btn" />
 		</div>
 	</form>
 	<div>
-		<img src={pict}/>
+		<img src={pict} />
 	</div>
 
 	<div class="todos">
@@ -73,7 +83,6 @@
 			</form>
 		{/each}
 	</div>
-
 </div>
 
 <style>
@@ -103,7 +112,7 @@
 		flex: 1;
 	} */
 
-	.del   {
+	.del {
 		border: none;
 		background: url('remove.svg') no-repeat 50% 50%;
 		background-size: 1rem 1rem;
