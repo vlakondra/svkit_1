@@ -12,7 +12,12 @@
 		reader.readAsDataURL(image);
 		reader.onload = (e) => {
 			pict = e.target.result;
-			console.log(pict);
+			console.log(e,pict);
+
+			console.log(fileInput.files);
+			
+			const inp = document.querySelector("#file");
+		    console.log(inp.files)
 		};
 	}
 
@@ -58,6 +63,7 @@
 						bind:this={fileInput}
 						on:change={() => getBase64(fileInput.files[0])}
 						name="file"
+						id="file"
 						type="file"
 						accept=".png,.jpg"
 					/></label>
