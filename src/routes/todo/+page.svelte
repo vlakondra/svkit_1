@@ -54,7 +54,14 @@
 					value={form?.description ?? ''}
 					autocomplete="off"
 				/>
-				
+				<label>
+					<input type="date"
+					name="finish"
+					/>
+				</label>
+
+
+
 				<input type="hidden" value={pict} name="img" id="img" />
 				<div>
 					<label for="file" class="btn" on:click={getFile}> Файл 
@@ -82,8 +89,9 @@
 		{#each data.todos as todo (todo.id)}
 			<form method="POST" action="?/delete">
 				<input type="hidden" name="id" value={todo.id} />
-				<div class="item" style="display:flex; width:100%; align-items: center;">
+				<div  class:active={new Date(todo.finish) < new Date()}   class="item" style="display:flex; width:100%; align-items: center;">
 					<div style="flex:1">{todo.description}</div>
+					<div style="flex:1">{new Date(todo.finish).toLocaleDateString()}</div>
 					<button class="del" title="удалить" />
 				</div>
 			</form>
@@ -92,6 +100,11 @@
 </div>
 
 <style>
+
+	.active{
+		background-color: red;
+		color:white;
+	}
 	.centered {
 		max-width: 20em;
 		margin: 50px auto;

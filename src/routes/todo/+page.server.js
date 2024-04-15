@@ -25,15 +25,16 @@ export const actions = {
 
 		let offile = data.get("file")
 		let img64 =  data .get("img")
+		let finish = data.get('finish')
 
-        console.log("offile-", offile, offile.name,img64)
+        console.log("offile-",finish, offile, offile.name,img64)
 
 
 
 		// db.createTodo(cookies.get('userid'), data.get('description'));
 
 		try {
-			db.createTodo(cookies.get('userid'), data.get('description'));
+			db.createTodo(cookies.get('userid'), data.get('description'),finish);
 
 
 			if (offile) {
