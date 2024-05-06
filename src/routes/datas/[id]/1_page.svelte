@@ -1,5 +1,4 @@
 <script>
-	//https://joyofcode.xyz/using-sveltekit-endpoints
 	async function getPosts() {
 		const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 		return response.json();
