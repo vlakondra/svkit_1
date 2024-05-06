@@ -35,7 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"js-cookie": "^3.0.5",
-		"node-calls-python": "^1.8.4",
+		"node-calls-python": "^1.9.1",
 		"svelte-cookie": "^1.0.1"
 	}
 }
