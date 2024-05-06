@@ -6,17 +6,23 @@
 <div class="posts">
     {#each data.posts as post}
         <div>
-			<div style='position:absolute;right:10px; top:3px;font-size:0.75rem'>
-				1
+			<div class='meta left' >
+				{post.userId}
 			</div>
-			<div style='position:absolute;left:10px; top:3px;font-size:0.75rem'>
-				2
+			<div  class='meta right'>
+				{post.id}
 			</div>
 			{post.title}
 		</div>
     {/each}
 </div>
-
+<div class="posts">
+{#each data.images as image}
+		<a class="image" href={image.url}>
+			<img src={image.thumbnailUrl} alt={image.title} />
+		</a>
+	{/each}
+</div>
 <style>
 	.posts {
 		width: 75%;
@@ -27,16 +33,30 @@
 		padding: 15px 10px;
 		margin: 20px auto;
 		background-color: rgb(213, 209, 190);
-	}
+	
 
-	.posts > * {
+	& > * {
 		display: grid;
 		position: relative;
 		justify-content: normal;
         align-content: start;
-		padding: 0.5rem;
+		padding: 0.65rem;
 		font-size: 1.5rem;
 		color: rgb(73, 9, 9);
 		border: 1px solid gray;
+	}
+}
+	.meta{
+		background-color: blanchedalmond;
+		position:absolute;
+		
+		top:3px;
+		font-size:0.75rem
+	}
+	.left{
+		left:10px; 
+	}
+	.right{
+		right:10px; 
 	}
 </style>
