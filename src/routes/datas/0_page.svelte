@@ -1,13 +1,22 @@
 <script>
-    export let data
+	//https://joyofcode.xyz/using-sveltekit-endpoints
+	async function getPosts() {
+		const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+		return response.json();
+	}
+
+	let posts = getPosts();
 </script>
 
-
-<div class="posts">
-    {#each data.posts as post}
-        <div>{post.title}</div>
-    {/each}
-</div>
+{#await posts}
+	<p>Loading...</p>
+{:then posts}
+		<div class="posts">
+			{#each posts as post}
+				<div>{post.title}</div>
+			{/each}
+		</div>
+{/await}
 
 <style>
 	.posts {
