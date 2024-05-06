@@ -5,7 +5,15 @@
 
 <div class="posts">
     {#each data.posts as post}
-        <div>{post.title}</div>
+        <div>
+			<div style='position:absolute;right:10px; top:3px;font-size:0.75rem'>
+				1
+			</div>
+			<div style='position:absolute;left:10px; top:3px;font-size:0.75rem'>
+				2
+			</div>
+			{post.title}
+		</div>
     {/each}
 </div>
 
@@ -23,6 +31,7 @@
 
 	.posts > * {
 		display: grid;
+		position: relative;
 		justify-content: normal;
         align-content: start;
 		padding: 0.5rem;
