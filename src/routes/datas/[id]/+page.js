@@ -3,7 +3,8 @@ async function getPosts() {
     return response.json()
   }
   
-  export async function load() {
+  export async function load({params}) {
+    console.log('p',params)
     return {
       posts: await getPosts()
     }
