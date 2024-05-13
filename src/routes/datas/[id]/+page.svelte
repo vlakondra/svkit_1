@@ -2,6 +2,11 @@
     export let data
 </script>
 
+<div>
+	{#each data.users as user}
+		 <p>{user}</p>
+	{/each}
+</div>
 
 <div class="posts">
     {#each data.posts as post}

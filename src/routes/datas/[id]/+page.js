@@ -1,6 +1,12 @@
 async function getPosts() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    return response.json()
+    let ids = []
+    let data = await response.json()
+
+    data.forEach(e => {!(e.userId in ids)? ids.push(e.userId):false});
+    console.log(ids)  
+    
+    return {posts:data,ids:[...new Set(ids)]}//response.json()
   }
   
   async function getImages(limit) {
@@ -11,9 +17,11 @@ async function getPosts() {
 
 
   export async function load({params}) {
-    console.log('p',params)
+    //console.log('p',params)
+    let tmp = await getPosts()
     return {
-      posts: await getPosts(),
+      posts: tmp.posts,
+      users: tmp.ids,
       images: await getImages(10)
     }
   }
