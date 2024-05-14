@@ -1,15 +1,21 @@
 <script>
     export let data
+	let activeUser = 1
+	function idClick(userid){
+       activeUser=userid
+	}
 </script>
 
 <div>
 	{#each data.users as user}
-		 <p>{user}</p>
+	     <p>
+		    <button on:click={()=>idClick(user)}>{user}</button>
+		</p>
 	{/each}
 </div>
 
 <div class="posts">
-    {#each data.posts as post}
+    {#each data.posts.filter((p)=>p.userId==activeUser) as post}
         <div>
 			<div class='meta left' >
 				{post.userId}
@@ -21,13 +27,13 @@
 		</div>
     {/each}
 </div>
-<div class="posts">
+<!-- <div class="posts">
 {#each data.images as image}
 		<a class="image" href={image.url}>
 			<img src={image.thumbnailUrl} alt={image.title} />
 		</a>
 	{/each}
-</div>
+</div> -->
 <style>
 	.posts {
 		width: 75%;
