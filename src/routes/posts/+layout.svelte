@@ -2,9 +2,6 @@
 	export let data;
 </script>
 
-<p>POSTS</p>
-
-<!-- <p>{JSON.stringify(data)}</p> -->
 <div class="layoutposts">
 	<div class="posts">
 		<slot />
@@ -12,9 +9,8 @@
 
 	<div class="users">
 		{#each data.users as user}
-
 			<p>
-			  <a href='/posts/{user}'>{user}</a>
+			  <a href='/posts/{user}'>User {user}</a>
 		    </p>
 		{/each}
 	</div>
@@ -28,11 +24,12 @@
 		margin: 20px;
 	}
 	.posts {
-		width: 75%;
-		border: 1px solid gray;
+		width: 80%;
+		border-right: 1px solid gray;
 	}
 	.users {
-		width: 25%;
-		border: 1px solid gray;
+		width: 20%;
+		text-align: center;
+    margin-top: 25px;
 	}
 </style>
