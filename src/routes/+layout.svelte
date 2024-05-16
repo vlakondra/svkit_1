@@ -11,7 +11,7 @@
 	<a class='link' href="/python">Python</a>
 	<a class='link' href="/countries">Countries</a>
 	<a class='link' href="/earth">Earth</a>
-	<a class='link' href="/datas">Данные</a>
+	<a class='link' href="/posts">Данные</a>
 </nav>
 
 <slot />
