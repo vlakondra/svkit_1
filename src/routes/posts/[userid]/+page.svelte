@@ -2,4 +2,4 @@
     export let data
 </script>
 
-<p>{JSON.stringify(data)}</p>
+<p>{JSON.stringify(data.userposts)}</p>
