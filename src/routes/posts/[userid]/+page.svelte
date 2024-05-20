@@ -15,7 +15,13 @@
 			<div  class='meta right'>
 				{post.id}
 			</div>
-			{post.title}
+			<div>
+			  {post.title}
+		    </div>
+			<div>
+				<a href='/posts/{post.userId}/{post.id}'>Читать</a>
+			</div>
+
 		</div>
     {/each}
 </div>
