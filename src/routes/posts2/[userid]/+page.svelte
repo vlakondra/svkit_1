@@ -8,11 +8,3 @@ if (browser) {
 }
 </script>
 
-
-<div class="userposts">
-  post body {`posts2/${data.userid}/${data.userposts[0]}`}
-</div>
-
-<style>
-	
-</style>
