@@ -10,8 +10,8 @@ async function getUserPosts(userid) {
   
   export async function load({params}) {
     let user_id = params.userid
-    console.log('par', user_id)
     let tmp = await getUserPosts(user_id)
+    
     return { userposts: tmp,
       userid: user_id
 

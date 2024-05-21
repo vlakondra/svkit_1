@@ -1,22 +1,21 @@
 <script>
 	export let data;
+	import { page } from '$app/stores';
 </script>
+
 
 <div class="layoutuserposts">
 	<div class="menu">
 		{#each data.userposts as post}
-			 <div>
-				<a href='/posts2/{data.userid}/{post}'>Post {post} </a>
-			 </div>
+			<div class:active={post == $page.params.postid}>
+				<a href="/posts2/{data.userid}/{post}" on:click={() => onlink_click(post)}>Post {post} </a>
+			</div>
 		{/each}
 	</div>
-	<div class='post'>
+	<div class="post">
 		<slot />
 	</div>
 </div>
-	
-    
-
 
 <style>
 	.layoutuserposts {
@@ -27,13 +26,15 @@
 	}
 
 	.post {
-		width: 70%;
-
+		width: 75%;
 	}
 	.menu {
-		width: 30%;
+		width: 25%;
 		text-align: center;
-    margin-top: 0%;
+		min-width: 90px;
 	}
-
+	.active {
+		background-color: blue;
+		color: white;
+	}
 </style>

@@ -7,4 +7,5 @@
         setTimeout(()=>goto(`posts1/${data.users[0]}`),1000)
 	}
 </script>
-<p>Ждите!</p>
+
+<p>Ждите 1 сек!</p>
