@@ -19,7 +19,7 @@
 			  {post.title}
 		    </div>
 			<div>
-				<a href='/posts/{post.userId}/{post.id}'>Читать</a>
+				<a href='/posts1/{post.userId}/{post.id}'>Читать</a>
 			</div>
 
 		</div>

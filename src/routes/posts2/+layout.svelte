@@ -10,7 +10,7 @@
 	<div class="users">
 		{#each data.users as user}
 			<p>
-			  <a href='/posts/{user}'>User {user}</a>
+			  <a href='/posts2/{user}'>User {user}</a>
 		    </p>
 		{/each}
 	</div>

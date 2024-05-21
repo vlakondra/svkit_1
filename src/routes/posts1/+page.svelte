@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 
     if (browser) {
-		goto(`posts/${data.users[0]}`);
+        setTimeout(()=>goto(`posts1/${data.users[0]}`),1000)
 	}
 </script>
+<p>Ждите!</p>
