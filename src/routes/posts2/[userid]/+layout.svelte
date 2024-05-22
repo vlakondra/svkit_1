@@ -8,7 +8,7 @@
 	<div class="menu">
 		{#each data.userposts as post}
 			<div class:active={post == $page.params.postid}>
-				<a href="/posts2/{data.userid}/{post}" on:click={() => onlink_click(post)}>Post {post} </a>
+				<a href="/posts2/{data.userid}/{post}">Post {post} </a>
 			</div>
 		{/each}
 	</div>
