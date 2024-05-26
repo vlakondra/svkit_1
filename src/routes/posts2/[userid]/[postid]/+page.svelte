@@ -1,10 +1,26 @@
 <script>
 	export let data;
 	import { page } from '$app/stores';
-	let showComm = false;
+	
+    export let test = $page.route// data.params;
+	let showComm = data.showcomments;
+
+    $: {
+        testIsChanged($page.route);
+    }
+
+    function testIsChanged(newValue) {
+		showComm = false;
+        console.log('newvalue',newValue);
+    }
+
+
+	
+	console.log("showcomm",showComm)
 	const TriggerComment = () => {
 		showComm = !showComm;
 	};
+
 </script>
 
 <!-- {JSON.stringify(data.comments)} -->
