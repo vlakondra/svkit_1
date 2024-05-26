@@ -8,14 +8,13 @@ async function getPost(id) {
      return response.json()
   }
 
-  export async function load({params,parent}) {
+  export async function load({params}) {
       let post = await getPost(params.postid)
       let comments =  await getComments(params.postid)
-     console.log('par',params.postid, )
+      
       return {
         params:params.postid,
         post:post,
         comments:comments,
-        showcomments:false
       }
     }

@@ -1,45 +1,45 @@
 <script>
 	export let data;
 	import { page } from '$app/stores';
-	
-    export let test = $page.route// data.params;
-	let showComm = data.showcomments;
 
-    $: {
-        testIsChanged($page.route);
-    }
+	let showComm = false; 
 
-    function testIsChanged(newValue) {
-		showComm = false;
-        console.log('newvalue',newValue);
-    }
+	$: {
+		TriggerComment($page.params.postid);
+	}
 
-
-	
-	console.log("showcomm",showComm)
-	const TriggerComment = () => {
-		showComm = !showComm;
+	const TriggerComment = (newValue) => {
+		console.log(typeof newValue, newValue);
+		if (typeof newValue == 'string') showComm = false;
+		else showComm = !showComm;
 	};
-
 </script>
 
-<!-- {JSON.stringify(data.comments)} -->
+
 <p>{data.post.body}</p>
 <div>
-	<button on:click={TriggerComment}>
-		{#if !showComm}
-			Показать
-		{:else}
-			Скрыть
-		{/if}
+	<button on:click={TriggerComment} class='w-24  bg-green-500 hover:bg-green-700 text-white  py-0.8 px-4 rounded' >
+		{!showComm?"Показать":"Скрыть"}
 	</button>
 </div>
-<div>
+<hr>
+<div class='comments'>
 	{#if showComm}
 		{#each data.comments as comm}
-			<div>
+			<div class="comment">
 				{comm.body}
 			</div>
 		{/each}
 	{/if}
 </div>
+
+<style>
+	.comments{
+		font-size: small;
+		margin:5px;
+	}
+	.comments div {
+		border-bottom:1px solid gray;
+		padding:5px;
+	}
+</style>
